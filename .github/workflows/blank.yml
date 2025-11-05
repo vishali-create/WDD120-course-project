@@ -1,0 +1,31 @@
+name: CI/CD Pipeline Demo
+
+on: 
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Step 1: Install Ubuntu dependencies
+        run: |
+          echo "Installing packages on Ubuntu"
+          sudo apt-get update
+          sudo apt-get install -y curl
+
+      - name: Step 2: Run test cases (demo)
+        run: |
+          echo "Running test cases..."
+          echo "✅ Test Case Passed"
+
+      - name: Step 3: Deploy script
+        run: |
+          echo "Deploying project..."
+          echo "✅ Deployment Done"
